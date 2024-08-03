@@ -230,3 +230,227 @@ In this example, the `EventSorter` class is used to sort a list of `Event` objec
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
+
+# 5. HashMap Class
+
+## Overview
+
+The `java.util.HashMap` class provides the implementation of the Map interface, offering efficient key-value pair storage and retrieval. It uses a hash table for storing entries, which allows for quick access to elements based on their keys. The class permits null values and a null key but does not guarantee any specific order of entries.
+
+## Features
+
+- **Efficient Storage:** Uses a hash table to store key-value pairs, providing average O(1) time complexity for basic operations like adding, removing, and retrieving entries.
+- **Flexible Key and Value Types:** Supports null values and a null key.
+- **Standard and Advanced Operations:** Includes methods for basic operations (`put()`, `get()`, `remove()`, `containsKey()`) and advanced operations (`putIfAbsent()`, `computeIfAbsent()`, `merge()`).
+
+## Usage
+
+### Example
+
+```java
+import java.util.HashMap;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // Adding entries to the map
+        map.put("one", 1);
+        map.put("two", 2);
+        map.put("three", 3);
+
+        // Retrieving and printing an entry
+        int value = map.get("two");
+        System.out.println("Value for key 'two': " + value);
+
+        // Checking for the presence of a key
+        boolean containsKey = map.containsKey("three");
+        System.out.println("Map contains key 'three': " + containsKey);
+
+        // Removing an entry
+        map.remove("one");
+
+        // Iterating over the map entries
+        for (String key : map.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + map.get(key));
+        }
+    }
+}
+```
+
+In this example, the `HashMap` class is used to store, retrieve, and manage key-value pairs. The example demonstrates adding entries, retrieving values, checking for key presence, removing entries, and iterating over the map.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+The `SearchingEvent` class provides functionality to manage and search for events based on various attributes such as title, date, and location. The class leverages binary search algorithms to efficiently find events within a sorted list. This ensures quick and accurate retrieval of events, making it ideal for applications that require frequent searching of large event datasets. The methods in the class are designed to target specific attributes, allowing for precise querying.
+
+The methods in the class definition are as follows:
+
+- **`searchEventsByMeeting(String title)`:** This method searches for an event by its title.
+  - **Parameters:** `title` - The title of the event to search for.
+  - **Returns:** `Event` - The event with the specified title.
+
+- **`searchEventByDate(LocalDate date)`:** This method searches for an event by its date.
+  - **Parameters:** `date` - The date of the event to search for.
+  - **Returns:** `Event` - The event with the specified date.
+
+- **`searchEventByLocation(String location)`:** This method searches for an event by its location.
+  - **Parameters:** `location` - The location of the event to search for.
+  - **Returns:** `Event` - The event with the specified location.
+
+---
+
+
+# 6. SearchingEvent Class
+
+## Overview
+
+The `SearchingEvent` class provides tools to manage and search for events based on attributes like title, date, and location. It uses binary search algorithms for efficient and quick retrieval of events from a sorted list.
+
+## Methods
+
+### `searchEventsByMeeting(String title)`
+
+- **Description:** Searches for an event by its title.
+- **Parameters:** `title` - The title of the event to search for.
+- **Returns:** `Event` - The event with the specified title.
+
+### `searchEventByDate(LocalDate date)`
+
+- **Description:** Searches for an event by its date.
+- **Parameters:** `date` - The date of the event to search for.
+- **Returns:** `Event` - The event with the specified date.
+
+### `searchEventByLocation(String location)`
+
+- **Description:** Searches for an event by its location.
+- **Parameters:** `location` - The location of the event to search for.
+- **Returns:** `Event` - The event with the specified location.
+
+## Usage
+
+### Example
+
+```java
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SearchingEvent {
+    private ArrayList<Event> events;
+
+    public SearchingEvent() {
+        events = new ArrayList<>();
+    }
+
+    public void addEvent(Event event) {
+        events.add(event);
+        Collections.sort(events, Comparator.comparing(Event::getDate)); // Assuming Event has a getDate method
+    }
+
+    public Event searchEventsByMeeting(String title) {
+        for (Event event : events) {
+            if (event.getTitle().equalsIgnoreCase(title)) {
+                return event;
+            }
+        }
+        return null;
+    }
+
+    public Event searchEventByDate(LocalDate date) {
+        int index = Collections.binarySearch(events, new Event(date), Comparator.comparing(Event::getDate)); // Assuming Event has a constructor that takes LocalDate
+        if (index >= 0) {
+            return events.get(index);
+        }
+        return null;
+    }
+
+    public Event searchEventByLocation(String location) {
+        for (Event event : events) {
+            if (event.getLocation().equalsIgnoreCase(location)) {
+                return event;
+            }
+        }
+        return null;
+    }
+}
+```
+
+In this example, the `SearchingEvent` class is used to add events, and search for events by title, date, and location. The events are stored in a sorted list to facilitate efficient searching.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+# 7. EventScheduler Class
+
+## Overview
+
+The `EventScheduler` class provides functionality to manage and search for events based on various attributes such as title, date, and location. By leveraging binary search algorithms, it ensures efficient and accurate retrieval of events from a sorted list, making it ideal for applications with frequent queries on large datasets.
+
+## Features
+
+- **Event Management:** Efficiently manage events by adding, updating, and maintaining a sorted list.
+- **Binary Search:** Utilizes binary search algorithms to quickly find events based on specific attributes.
+
+## Methods
+
+### `searchEventsByMeeting(String title)`
+
+This method searches for an event by its title.
+
+- **Parameters:** `title` - the title of the event to search for.
+- **Returns:** `Event` - the event with the specified title.
+
+### `searchEventByDate(LocalDate date)`
+
+This method searches for an event by its date.
+
+- **Parameters:** `date` - the date of the event to search for.
+- **Returns:** `Event` - the event with the specified date.
+
+### `searchEventByLocation(String location)`
+
+This method searches for an event by its location.
+
+- **Parameters:** `location` - the location of the event to search for.
+- **Returns:** `Event` - the event with the specified location.
+
+## Usage
+
+To use the `EventScheduler` class, instantiate it and use the provided methods to manage and search for events.
+
+### Example
+
+```java
+// Create an instance of EventScheduler
+EventScheduler scheduler = new EventScheduler();
+
+// Add events to the scheduler (example not provided in the original code)
+
+// Search for an event by title
+Event eventByTitle = scheduler.searchEventsByMeeting("Team Meeting");
+System.out.println(eventByTitle);
+
+// Search for an event by date
+Event eventByDate = scheduler.searchEventByDate(LocalDate.of(2024, 8, 3));
+System.out.println(eventByDate);
+
+// Search for an event by location
+Event eventByLocation = scheduler.searchEventByLocation("Conference Room");
+System.out.println(eventByLocation);
+```
+
+## Error Handling
+
+Ensure that the list of events is sorted before performing any search operations to guarantee the accuracy and efficiency of the binary search algorithm.
+
+## Contributing
+
+If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
