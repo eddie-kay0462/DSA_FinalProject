@@ -520,3 +520,56 @@ Reads event data from the specified file and organizes it into a nested `HashMap
 - Ensure the input file is in the correct format, with event attributes separated by commas.
 - The program handles invalid inputs and provides appropriate feedback to the user.
 
+Certainly! Here’s the README documentation for the `Year_Calendar` class:
+
+---
+
+# 9. Year_Calendar Class
+
+## Overview
+
+The `Year_Calendar` class is designed to manage and print calendar data for multiple years. It utilizes a nested `HashMap` structure to organize and store calendar information by year, month, and day. This class provides methods to add years, retrieve calendar data for specific years, and print the calendar structure in a readable format.
+
+## Features
+
+- **Add Year:** Initializes and adds a new year to the calendar if it does not already exist. Uses the `Calendar.createCalendar(year)` method to generate the calendar structure for the specified year.
+- **Get Calendar:** Retrieves the calendar for a specified year. If the year is not present, it automatically adds it.
+- **Print Calendar:** Prints the calendar structure for a specified year, displaying the months and days.
+
+## Usage
+
+To use the `Year_Calendar` class, follow these steps:
+
+1. **Initialize:** Create an instance of `Year_Calendar`.
+2. **Add and Print:** Add multiple years to the calendar and print the calendar structure.
+
+### Example
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Year_Calendar yearCalendar = new Year_Calendar();
+
+        // Add and print calendars for multiple years
+        int[] years = {2024, 2025, 2026, 2027, 2028};
+        for (int year : years) {
+            yearCalendar.addYear(year);
+            yearCalendar.printCalendar(year);
+        }
+    }
+}
+```
+
+## Methods
+
+- **`addYear(int year)`**: Adds the specified year to the calendar. Initializes the calendar if it is not already present.
+- **`getCalendar(int year)`**: Retrieves the calendar for the specified year. Adds the year if it is not present.
+- **`printCalendar(int year)`**: Prints the calendar structure for the specified year, including months and days.
+
+## Requirements
+
+- Ensure that the `Calendar` class is available and properly implemented with the `createCalendar` method to generate calendar data.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
