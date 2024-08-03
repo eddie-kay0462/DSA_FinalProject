@@ -34,13 +34,13 @@ public class HuggingFaceAPI {
         return response;
     }
 
-    public static void main(String[] args) {
+    public static String main(String[] args) {
         try {
             String eventDetails = "This is a sample event description. It contains details about the event, including date, time, and location.";
             String summary = generateSummary(eventDetails);
-            System.out.println("Generated Summary: " + summary);
+            return summary;
         } catch (Exception e) {
-            e.printStackTrace();
+            return "Error generating summary: " + e.getMessage();
         }
     }
 }
