@@ -482,3 +482,67 @@
 "Veterans Day Appreciation Dinner", "2082-11-11", "06:00 PM", "Grand Ballroom", "Honor our veterans with a special appreciation dinner. Enjoy a delicious meal, live entertainment, and heartfelt tributes to those who have served our country."
 "Winter Festival of Lights", "2082-12-05", "05:00 PM", "Downtown Square", "Experience the magic of the holiday season at our Winter Festival of Lights. Enjoy beautiful light displays, holiday music, food vendors, and activities for all ages."
 "New Year's Day Hike", "2083-01-01", "09:00 AM", "Nature Reserve", "Start the new year with a refreshing hike through the nature reserve. Enjoy"
+"Fourth of July Family Festival", "2080-07-04", "11:00 AM", "City Park", "Join us for a fun-filled Fourth of July Family Festival. Enjoy games, food, live entertainment, and a spectacular fireworks show in the evening."
+"Summer Outdoor Movie Nights", "2080-08-10", "08:00 PM", "Community Park", "Bring a blanket and enjoy classic movies under the stars at our Summer Outdoor Movie Nights. Snacks and drinks will be available for purchase. A perfect way to spend summer evenings."
+"Fall Harvest Festival", "2080-09-15", "10:00 AM", "Fairgrounds", "Celebrate the bounty of the season at our Fall Harvest Festival. Enjoy carnival rides, agricultural exhibits, live entertainment, and delicious food from local vendors."
+"Halloween Trick-or-Treat Festival", "2080-10-31", "05:00 PM", "Main Street", "Bring your kids for a safe and fun Trick-or-Treat Festival. Enjoy decorated stations, games, and plenty of treats along Main Street. A perfect way to celebrate Halloween."
+"Veterans Day Memorial Service", "2080-11-11", "10:00 AM", "Veterans Memorial", "Join us for a solemn Memorial Service to honor our veterans. Listen to speeches, lay wreaths, and show your appreciation for those who have served our country."
+"Winter Wonderland Parade", "2080-12-01", "06:00 PM", "Downtown", "Kick off the holiday season with our Winter Wonderland Parade. Enjoy festive floats, marching bands, and a visit from Santa Claus. A magical evening for the whole family."
+"New Year's Eve Masquerade Gala", "2080-12-31", "08:00 PM", "Grand Ballroom", "Ring in the New Year with elegance at our Masquerade Gala. Enjoy live music, dancing, gourmet food, and a champagne toast at midnight. Dress in your finest attire and masks for a night of mystery and glamour."
+"Winter Fitness Bootcamp", "2081-01-10", "07:00 AM", "Recreation Center", "Kickstart your fitness journey with our Winter Fitness Bootcamp. Led by professional trainers, this program includes a mix of strength, cardio, and flexibility exercises designed to challenge and motivate you."
+"Valentine's Day Sweetheart Ball", "2081-02-14", "07:00 PM", "City Ballroom", "Celebrate love and romance at our Valentine's Day Sweetheart Ball. Enjoy an evening of dancing, live music, and a special dinner menu with your significant other."
+"Spring Equinox Picnic", "2081-03-20", "12:00 PM", "Botanical Gardens", "Welcome the arrival of spring with a picnic in the Botanical Gardens. Enjoy guided tours, floral displays, and family-friendly activities in a beautiful setting."
+"Easter Bunny Hop", "2081-04-05", "10:00 AM", "City Park", "Bring your kids for a fun-filled Easter Bunny Hop. Enjoy egg hunts, games, and prizes. Don't forget to bring your baskets and cameras for photos with the Easter Bunny."
+"Mother's Day High Tea", "2081-05-10", "02:00 PM", "Grand Hotel", "Treat your mom to a luxurious High Tea experience at the Grand Hotel. Enjoy a selection of fine teas, delicate pastries, and live music in an elegant setting."
+"Father's Day Barbecue Bash", "2081-06-21", "11:00 AM", "Community Park", "Celebrate Father's Day with a Barbecue Bash. Enjoy grilled favorites, live music, games, and activities for the whole family. A fun-filled day for fathers and their families."
+"Summer Solstice Music and Arts Festival", "2081-06-21", "10:00 AM", "Beachfront", "Celebrate the Summer Solstice with a day of music and arts. Enjoy live performances, art exhibits, food stalls, and family-friendly activities by the beach."
+"Fourth of July Picnic and Fireworks", "2081-07-04", "12:00 PM", "City Park", "Join us for a traditional Fourth of July Picnic followed by a spectacular fireworks display. Enjoy games, food, live entertainment, and a festive atmosphere with your community."
+"Summer Family Fun Day", "2081-08-08", "09:00 AM", "Amusement Park", "Spend a day of fun with your family at our Summer Family Fun Day. Enjoy rides, games, food stalls, and live entertainment. A perfect way to enjoy the summer season."
+"Harvest Moon Festival", "2081-09-22", "05:00 PM", "Farmstead", "Celebrate the Harvest Moon with a festival featuring live music, hayrides, pumpkin carving, and delicious fall treats. Enjoy a magical evening under the moonlight."
+"Halloween Haunted House", "2081-10-31", "07:00 PM", "Old Mansion", "Dare to enter our Haunted House and experience a night of thrills and chills. Navigate through spooky rooms and corridors filled with ghosts, ghouls, and surprises around every corner."
+"Veterans Day Tribute Breakfast", "2081-11-11", "08:00 AM", "Community Center", "Honor our veterans with a special breakfast event. Enjoy a delicious meal, hear inspiring stories, and show your appreciation for those who have served our country."
+"Winter Ice Sculpture Festival", "2081-12-15", "10:00 AM", "City Square", "Marvel at the beauty of ice sculptures at our Winter Ice Sculpture Festival. Enjoy hot drinks, food stalls, and family-friendly activities as you admire the stunning works of art."
+"New Year's Eve Countdown Bash", "2081-12-31", "09:00 PM", "Downtown Plaza", "Ring in the New Year with a fun-filled Countdown Bash. Enjoy live music, food stalls, and a fireworks display at midnight. Celebrate with friends and family in a festive atmosphere."
+"Winter Wellness Workshop", "2082-01-15", "10:00 AM", "Wellness Center", "Start the new year with a focus on wellness at our Winter Workshop. Learn tips and strategies for achieving your health goals, with sessions on nutrition, fitness, and mental well-being."
+"Valentine's Day Chocolate Tasting", "2082-02-14", "02:00 PM", "Convention Center", "Indulge in a day of sweet treats at our Valentine's Day Chocolate Tasting. Sample chocolates from local chocolatiers, attend workshops, and enjoy live entertainment."
+"Spring Garden Tour", "2082-03-25", "09:00 AM", "Botanical Gardens", "Explore the beauty of spring blooms at our annual Garden Tour. Enjoy guided tours, gardening workshops, and a day surrounded by nature's splendor."
+"Easter Parade and Egg Hunt", "2082-04-12", "10:00 AM", "Main Street", "Join us for a festive Easter Parade followed by an Egg Hunt. Enjoy decorated floats, live music, and plenty of eggs and prizes to be found."
+"Mother's Day Brunch Cruise", "2082-05-09", "11:00 AM", "Riverboat", "Treat your mom to a scenic brunch cruise on the river. Enjoy a delicious buffet, live music, and beautiful views as you celebrate Mother's Day together."
+"Father's Day Sports Tournament", "2082-06-20", "09:00 AM", "Sports Complex", "Celebrate Father's Day with a day of sports and activities. Enjoy soccer, basketball, tennis, and more. Compete for fun prizes and spend quality time with your dad."
+"Summer Solstice Beach Bonfire", "2082-06-21", "08:00 PM", "Ocean Beach", "Celebrate the longest day of the year with a Beach Bonfire. Enjoy music, s'mores, and a beautiful sunset as we gather around the fire for a night of fun and relaxation."
+"Fourth of July Fireworks Cruise", "2082-07-04", "07:00 PM", "Harbor", "Celebrate Independence Day with a Fireworks Cruise. Enjoy dinner, live music, and a spectacular fireworks display over the water. A perfect way to spend the holiday."
+"Summer Art Walk", "2082-08-15", "05:00 PM", "Art District", "Explore local art and meet artists at our Summer Art Walk. Enjoy galleries, street performances, and food stalls in the vibrant Art District."
+"Autumn Wine and Cheese Pairing", "2082-09-18", "04:00 PM", "Winery Estate", "Savor a variety of wines and gourmet cheeses at our Autumn Wine and Cheese Pairing. Enjoy a relaxing afternoon in a beautiful vineyard setting."
+"Halloween Carnival", "2082-10-31", "03:00 PM", "Community Park", "Bring your kids to our Halloween Carnival for a day of spooky fun. Enjoy games, rides, costume contests, and plenty of treats in a festive atmosphere."
+"Veterans Day Appreciation Dinner", "2082-11-11", "06:00 PM", "Grand Ballroom", "Honor our veterans with a special appreciation dinner. Enjoy a delicious meal, live entertainment, and heartfelt tributes to those who have served our country."
+"Winter Festival of Lights", "2082-12-05", "05:00 PM", "Downtown Square", "Experience the magic of the holiday season at our Winter Festival of Lights. Enjoy beautiful light displays, holiday music, food vendors, and activities for all ages."
+"New Year's Day Hike", "2083-01-01", "09:00 AM", "Nature Reserve", "Start the new year with a refreshing hike through the nature reserve. Enjoy"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
