@@ -12,7 +12,7 @@ public class Event {
     private static int idCounter = 1; // Static counter for generating unique IDs
 
     int id;
-    int priority =0; 
+    int priority = 0; 
     String title;
     LocalDate date;
     String time;
@@ -49,6 +49,7 @@ public class Event {
         this.time = time;
         this.location = location;
         this.description = description;
+        this.priority = EventPriority.calculatePriority(this.date, this.description);
 
         if (this.date == null) {
             throw new IllegalArgumentException("Invalid date format: " + dateString);
