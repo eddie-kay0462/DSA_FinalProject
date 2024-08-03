@@ -12,6 +12,7 @@ public class Event {
     private static int idCounter = 1; // Static counter for generating unique IDs
 
     int id;
+    int priority =0; 
     String title;
     LocalDate date;
     String time;
@@ -40,8 +41,9 @@ public class Event {
      * @param description A description of the event.
      * @throws IllegalArgumentException If the date format is invalid.
      */
-    public Event(String title, String dateString, String time, String location, String description) {
+    public Event(int priority, String title, String dateString, String time, String location, String description) {
         this.id = generateId();
+        this.priority = priority;
         this.title = title;
         this.date = parseDate(dateString);
         this.time = time;
@@ -63,14 +65,30 @@ public class Event {
      * @param location    The location where the event is taking place.
      * @param description A description of the event.
      */
-    public Event(int i, String title, LocalDate date, String time, String location, String description) {
+    public Event(int i, int priority, String title, LocalDate date, String time, String location, String description) {
         this.id = generateId();
+        this.priority = priority; 
         this.title = title;
         this.date = date;
         this.time = time;
         this.location = location;
         this.description = description;
     }
+
+    //getter methods 
+    public int getId() { return this.id; }
+    public String getTitle() { return this.title; }
+    public LocalDate getDate() { return this.date; }
+    public String getLocation() { return this.location; }
+    public String getDescription() { return this.description; }
+    public int getPriority() { return this.priority; }
+
+    //setter methods 
+    public void setTitle(String title) { this.title = title; }
+    public void setDate(LocalDate date) { this.date = date; }
+    public void setLocation(String location) { this.location = location; }
+    public void setDescription(String description) { this.description = description; }
+    public void setPriority(int priority) { this.priority = priority; }
 
     /**
      * Generating a unique ID for each event.
@@ -107,12 +125,13 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", date=" + date +
-                ", time='" + time + '\'' +
-                ", location='" + location + '\'' +
-                ", description='" + description + '\'' +
+                "id=" + this.id +
+                ", priority='" + this.priority + '\'' +
+                ", title='" + this.title + '\'' +
+                ", date=" + this.date +
+                ", time='" + this.time + '\'' +
+                ", location='" + this.location + '\'' +
+                ", description='" + this.description + '\'' +
                 '}';
     }
 }
