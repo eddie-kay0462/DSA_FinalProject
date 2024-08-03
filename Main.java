@@ -1,330 +1,187 @@
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+// main class to create an event planner for the user using the Event, EventSorter, and Calendar classes.
+
+import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
 
-/**
- * Main class for the Super Awesome Event Manager 3000.
- * Provides a command-line interface for managing events, including creating, modifying, deleting, viewing, searching, sorting, and generating summaries of events.
- */
 public class Main {
-    private static final LinkedList events = new LinkedList();
-    private static int eventIdCounter = 1;
-    private static final Scanner scanner = new Scanner(System.in);
-
-    // Date format patterns to handle
-    private static final DateTimeFormatter[] DATE_FORMATS = {
-            DateTimeFormatter.ofPattern("yyyy-MM-dd"),
-            DateTimeFormatter.ofPattern("yyyy/M/d"),
-            DateTimeFormatter.ofPattern("yyyy-M-d"),
-            DateTimeFormatter.ofPattern("M/d/yyyy"),
-            DateTimeFormatter.ofPattern("M-d-yyyy"),
-            DateTimeFormatter.ofPattern("d/M/yyyy"),
-            DateTimeFormatter.ofPattern("d-M-yyyy")
-    };
-
-    /**
-     * Main method to start the Event Manager application.
-     * Provides a menu for the user to interact with the system and manage events.
-     *
-     * @param args Command-line arguments (not used in this application).
-     */
     public static void main(String[] args) {
-        System.out.println("Hello, welcome to the Super Awesome Event Manager 3000!");
-        System.out.println("We promise not to mess up your plans... I mean, trying not to do so probably.");
+        Scanner input = new Scanner(System.in);
 
-        while (true) {
-            displayMenu();
-            String choice = scanner.nextLine().trim();
+        System.out.println("Welcome to the Event Planner!");
+
+        System.out.print("Enter the year for the calendar: ");
+        int year = input.nextInt();
+
+        HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = Calendar.createCalendar(year);
+
+        System.out.println("Calendar for " + year + ":");
+
+        // Print the calendar structure
+        for (String month : calendar.keySet()) {
+            System.out.println(month + ": " + calendar.get(month).keySet());
+        }
+
+        // interactive menu
+        boolean running = true;
+        while (running) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Add an event");
+            System.out.println("2. View events");
+            System.out.println("3. Sort events");
+            System.out.println("4. Search for an event");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = input.nextInt();
+            input.nextLine(); // Consume newline
 
             switch (choice) {
-                case "1":
-                    createEvent();
-                    break;
-                case "2":
-                    modifyEvent();
-                    break;
-                case "3":
-                    deleteEvent();
-                    break;
-                case "4":
-                    viewEvents();
-                    break;
-                case "5":
-                    searchEvent();
-                    break;
-                case "6":
-                    sortEvents();
-                    break;
-                case "7":
-                    generateSummary();
-                    break;
-                case "8":
-                    System.out.println("Thanks for using the Super Awesome Event Manager 3000! See you next time!");
-                    scanner.close();
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Hmm... That doesn't seem like a valid option. Try again.");
-            }
-        }
-    }
+                case 1:
+                    System.out.print("Enter the month: ");
+                    String month = input.nextLine();
+                    System.out.print("Enter the day: ");
+                    int day = input.nextInt();
+                    input.nextLine(); // Consume newline
 
-    /**
-     * Displays the menu of options for the user.
-     */
-    private static void displayMenu() {
-        System.out.println("\nBelow, you will find several options:");
-        System.out.println("1. Create Event");
-        System.out.println("2. Modify Event");
-        System.out.println("3. Delete Event");
-        System.out.println("4. View Events");
-        System.out.println("5. Search Event");
-        System.out.println("6. Sort Events");
-        System.out.println("7. Generate Summary");
-        System.out.println("8. Exit");
-        System.out.print("Enter a number from (1-8) to make a choice: ");
-    }
+                    System.out.print("Enter the title: ");
+                    String title = input.nextLine();
+                  
+                    System.out.print("Enter the time: ");
+                    String time = input.nextLine();
+                    System.out.print("Enter the location: ");
+                    String location = input.nextLine();
+                    System.out.print("Enter the description: ");
+                    String description = input.nextLine();
 
-    /**
-     /**
-     * Prompting the user to enter details for creating a new event and adds it to the list.
-     */
-    private static void createEvent() {
-        System.out.println("Please enter the event details in the format: Title Date Time Location Description");
-        System.out.println("Example: \"Birthday Party 2024-08-15 18:00 Cocody Angre A fun birthday party\"");
-
-        String details = scanner.nextLine().trim();
-        String[] parts = details.split(" ", 5);
-
-        if (parts.length < 5) {
-            System.out.println("Oops! The input format seems off. Make sure you provide Title, Date, Time, Location, and Description.");
-            return;
-        }
-
-        try {
-            String title = parts[0];
-            LocalDate date = parseDate(parts[1]);
-            String time = parts[2];
-            String location = parts[3];
-            String description = parts[4];
-
-            if (date == null) {
-                System.out.println("Uh-oh! The date format is incorrect. Please use one of the supported formats: yyyy-MM-dd, yyyy/M/d, yyyy-M-d, M/d/yyyy, M-d-yyyy, d/M/yyyy, or d-M-yyyy.");
-                return;
-            }
-
-            Event event = new Event(eventIdCounter++, title, date, time, location, description);
-            events.push(event);
-            System.out.println("Bravo, 🎉 Your event has been created successfully! " + event);
-        } catch (Exception e) {
-            System.out.println("Uh-oh! Something went wrong. Please check your inputs and try again.");
-        }
-    }
-
-
-    /**
-     * Prompts the user to enter details for modifying an existing event.
-     */
-    private static void modifyEvent() {
-        System.out.println("Please enter the event ID and the attribute to modify in the format: ID attribute newValue");
-        System.out.println("Example: 1 date 2024-08-08");
-        String details = scanner.nextLine().trim();
-        String[] parts = details.split(" ", 3);
-
-        if (parts.length != 3) {
-            System.out.println("Oops! The input format seems off. Try one more time.");
-            return;
-        }
-
-        try {
-            int id = Integer.parseInt(parts[0]);
-            String attribute = parts[1];
-            String newValue = parts[2];
-
-            Node current = events.head;
-            while (current != null) {
-                if (current.data.id == id) {
-                    switch (attribute) {
-                        case "title":
-                            current.data.title = newValue;
+                    //map the month to a number
+                    switch (month) {
+                        case "January":
+                            month = "01";
                             break;
-                        case "date":
-                            LocalDate newDate = parseDate(newValue);
-                            if (newDate == null) {
-                                System.out.println("Invalid date format. Please use one of the supported formats.");
-                                return;
-                            }
-                            current.data.date = newDate;
+                        case "February":
+                            month = "02";
                             break;
-                        case "time":
-                            current.data.time = newValue;
+                        case "March":
+                            month = "03";
                             break;
-                        case "location":
-                            current.data.location = newValue;
+                        case "April":
+                            month = "04";
                             break;
-                        case "description":
-                            current.data.description = newValue;
+                        case "May":
+                            month = "05";
+                            break;
+                        case "June":
+                            month = "06";
+                            break;
+                        case "July":
+                            month = "07";
+                            break;
+                        case "August":
+                            month = "08";
+                            break;
+                        case "September":
+                            month = "09";
+                            break;
+                        case "October":
+                            month = "10";
+                            break;
+                        case "November":
+                            month = "11";
+                            break;
+                        case "December":
+                            month = "12";
                             break;
                         default:
-                            System.out.println("Unknown attribute. Try 'title', 'date', 'time', 'location', or 'description'.");
-                            return;
+                            System.out.println("Invalid month. Please try again.");
+                            continue;
                     }
-                    System.out.println("🛠️ Event modified successfully! " + current.data);
-                    return;
-                }
-                current = current.next;
-            }
-            System.out.println("Event with ID " + id + " not found.");
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid ID format. Please enter a valid number.");
-        } catch (Exception e) {
-            System.out.println("Oops! Something went wrong. Make sure the ID is a number and the date is in a valid format.");
-        }
-    }
 
-    /**
-     * Attempts to parse a date string using supported formats.
-     *
-     * @param dateString The date string to parse.
-     * @return The parsed LocalDate or null if parsing fails.
-     */
-    private static LocalDate parseDate(String dateString) {
-        for (DateTimeFormatter formatter : DATE_FORMATS) {
-            try {
-                return LocalDate.parse(dateString, formatter);
-            } catch (DateTimeParseException e) {
-                // Continue to the next format
-            }
-        }
-        return null; // All formats failed
-    }
+                    // put the day, month, year in the format yyyy-MM-dd
+                    String dateString = year + "-" + month + "-" + day;
 
-    /**
-     * Prompts the user to enter an event ID to delete and removes it from the list.
-     */
-    private static void deleteEvent() {
-        System.out.println("Enter the event ID to delete:");
-        System.out.println("Example: 1");
-        String id = scanner.nextLine().trim();
+                    Event event = new Event(title, dateString, time, location, description);
+                    calendar.get(month).get(day).add(event);
+                    System.out.println("Event added successfully!");
+                    break;
+                case 2:
+                    System.out.print("Enter the month: ");
+                    month = input.nextLine();
+                    System.out.print("Enter the day: ");
+                    day = input.nextInt();
+                    input.nextLine(); // Consume newline
 
-        try {
-            int eventId = Integer.parseInt(id);
-            Node current = events.head;
-            Node previous = null;
-            while (current != null) {
-                if (current.data.id == eventId) {
-                    if (previous == null) {
-                        events.head = current.next;
-                    } else {
-                        previous.next = current.next;
-                    }
-                    System.out.println("🗑️ Please your event deleted successfully! " + current.data);
-                    return;
-                }
-                previous = current;
-                current = current.next;
-            }
-            System.out.println("Event with ID " + eventId + " not found.");
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid ID format. Please enter a valid number.");
-        } catch (Exception e) {
-            System.out.println("Oops! Something went wrong. Make sure the ID is a number.");
-        }
-    }
-
-    /**
-     * Displays all events in the list.
-     */
-    private static void viewEvents() {
-        System.out.println("Here are your events:");
-        events.printList();
-    }
-
-    /**
-     * Prompts the user to enter search criteria and displays matching events.
-     */
-    private static void searchEvent() {
-        System.out.println("Please enter the attribute to search by (title, date, location) and the value:");
-        System.out.println("Example: title Birthday Party");
-        String details = scanner.nextLine().trim();
-        String[] parts = details.split(" ", 2);
-
-        if (parts.length != 2) {
-            System.out.println("Oops! The input format seems off. Try again.");
-            return;
-        }
-
-        String attribute = parts[0];
-        String value = parts[1];
-
-        Node current = events.head;
-        boolean found = false;
-        while (current != null) {
-            switch (attribute) {
-                case "title":
-                    if (current.data.title.equalsIgnoreCase(value)) {
-                        System.out.println(current.data);
-                        found = true;
+                    System.out.println("Events on " + month + " " + day + ":");
+                    for (Event e : calendar.get(month).get(day)) {
+                        System.out.println(e.title + " " + e.date + " " + e.priority);
                     }
                     break;
-                case "date":
-                    if (current.data.date.toString().equals(value)) {
-                        System.out.println(current.data);
-                        found = true;
-                    }
+                case 3:
+                    System.out.print("Enter the attribute to sort by (date, title, priority): ");
+                    String attribute = input.nextLine();
+                    System.out.print("Sort in reverse order (true/false): ");
+                    boolean reverse = input.nextBoolean();
+                    input.nextLine(); // Consume newline
+
+                    Calendar.sortEvents(calendar, attribute, reverse);
+                    System.out.println("Events sorted successfully!");
                     break;
-                case "location":
-                    if (current.data.location.equalsIgnoreCase(value)) {
-                        System.out.println(current.data);
-                        found = true;
+                //searching for an event 
+                case 4:
+                    //print the options for searching
+                    System.out.println("Search by:");
+                    System.out.println("1. Title");
+                    System.out.println("2. Date");
+                    System.out.println("3. Location");
+                    System.out.print("Enter your choice: ");
+                    int searchChoice = input.nextInt();
+                    input.nextLine(); // Consume newline
+
+                    switch (searchChoice) {
+                        case 1:
+                            System.out.print("Enter the title to search for: ");
+                            title = input.nextLine();
+                            Event searchedEvent = Calendar.searchEvent(calendar, title);
+                            if (searchedEvent != null) {
+                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                            } else {
+                                System.out.println("Event not found.");
+                            }
+                            break;
+                        case 2:
+                            System.out.print("Enter the date to search for (yyyy-MM-dd): ");
+                            dateString = input.nextLine();
+                            LocalDate date = LocalDate.parse(dateString);
+                            searchedEvent = Calendar.searchEvent(calendar, date);
+                            if (searchedEvent != null) {
+                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                            } else {
+                                System.out.println("Event not found.");
+                            }
+                            break;
+                        case 3:
+                            System.out.print("Enter the location to search for: ");
+                            String locat = input.nextLine();
+                            searchedEvent = Calendar.searchEventLocation(calendar, locat);
+                            if (searchedEvent != null) {
+                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                            } else {
+                                System.out.println("Event not found.");
+                            }
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please try again.");
                     }
+
+
+                case 5:
+                    running = false;
                     break;
                 default:
-                    System.out.println("Unknown attribute. Try 'title', 'date', or 'location'.");
-                    return;
+                    System.out.println("Invalid choice. Please try again.");
             }
-            current = current.next;
         }
-        if (!found) {
-            System.out.println("No events found with " + attribute + " = " + value);
-        }
-    }
-
-    /**
-     * Prompts the user to enter sorting criteria and sorts the events accordingly.
-     */
-    private static void sortEvents() {
-        System.out.println("Enter the attribute to sort by (date, title) and optional '-' for descending order:");
-        System.out.println("Example: date or -title");
-        String attribute = scanner.nextLine().trim();
-        boolean reverse = false;
-
-        if (attribute.startsWith("-")) {
-            attribute = attribute.substring(1);
-            reverse = true;
-        }
-
-        events.sort(attribute, reverse);
-        System.out.println("🔄 Events sorted by " + (reverse ? "descending " : "") + attribute + ":");
-        events.printList();
-    }
-
-    /**
-     * Prompts the user to enter a date range and generates a summary of events within that range.
-     */
-    private static void generateSummary() {
-        System.out.println("Enter a date range to generate a summary (e.g., YYYY-MM-DD to YYYY-MM-DD):");
-        System.out.println("Example: 2024-08-01 to 2024-08-31");
-        String dateRange = scanner.nextLine().trim();
-
-        try {
-            // Example implementation, you can refine based on your needs
-            System.out.println("Generating summary for: " + dateRange);
-            String summary = HuggingFaceAPI.generateSummary(dateRange); // Replace with actual summary generation logic
-            System.out.println("Summary generated: " + summary);
-        } catch (Exception e) {
-            System.out.println("Oops! There was an error generating the summary. Check your input or try again later.");
-        }
+      System.out.println("Thank you for using the Event Planner!");
+      input.close();
     }
 }
