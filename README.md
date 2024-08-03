@@ -454,3 +454,69 @@ If you find any issues or have suggestions for improvement, please open an issue
 ## License
 
 This project is licensed under the MIT License.
+
+# 8. AutomateMain Class
+
+## Overview
+
+The `AutomateMain` class is a comprehensive Java program designed to manage and search for events based on various attributes such as title, date, and location. It reads event data from an input file, organizes it into a structured calendar, and provides an interactive menu for users to search and sort events efficiently.
+
+## Features
+
+- **Loading Events from File:** Reads events from a specified file and stores them in a nested `HashMap` structure.
+- **Interactive Menu:** Provides options to search for events by title, date, or location, and to sort events by date, title, or priority.
+- **Efficient Searching and Sorting:** Utilizes binary search algorithms and sorting mechanisms to manage events efficiently.
+- **User Feedback:** Displays time taken for search and sort operations and provides clear feedback for invalid inputs.
+
+## Usage
+
+1. **Run the Program:**
+   - Execute the `main` method of the `AutomateMain` class.
+   - Enter the input file name when prompted (e.g., `events.txt`).
+
+2. **Interactive Menu:**
+   - The program will display a menu with options to search for events, sort events, or exit.
+   - Choose an option by entering the corresponding number.
+
+3. **Search for Events:**
+   - Choose to search by title, date, or location.
+   - Enter the search term when prompted.
+   - The program will display the event details if found.
+
+4. **Sort Events:**
+   - Enter the attribute to sort by (date, title, or priority).
+   - Specify whether to sort in reverse order (true/false).
+   - The program will sort the events and display the time taken for the operation.
+
+## Example
+
+```java
+// Sample code to run the AutomateMain class
+public class Main {
+    public static void main(String[] args) {
+        AutomateMain.main(args);
+    }
+}
+```
+
+## Methods
+
+### `main(String[] args)`
+
+The entry point of the program. Initializes the interactive menu and handles user input for searching and sorting events.
+
+### `loadEventsFromFile(String fileName)`
+
+Reads event data from the specified file and organizes it into a nested `HashMap` structure.
+
+#### Parameters:
+- `fileName`: The name of the input file containing event details.
+
+#### Returns:
+- A `HashMap` representing the calendar with events organized by month and day.
+
+## Additional Notes
+
+- Ensure the input file is in the correct format, with event attributes separated by commas.
+- The program handles invalid inputs and provides appropriate feedback to the user.
+
