@@ -44,14 +44,59 @@ public class Main {
 
                     System.out.print("Enter the title: ");
                     String title = input.nextLine();
-                    System.out.print("Enter the date (yyyy-MM-dd): ");
-                    String dateString = input.nextLine();
+                  
                     System.out.print("Enter the time: ");
                     String time = input.nextLine();
                     System.out.print("Enter the location: ");
                     String location = input.nextLine();
                     System.out.print("Enter the description: ");
                     String description = input.nextLine();
+
+                    //map the month to a number
+                    switch (month) {
+                        case "January":
+                            month = "01";
+                            break;
+                        case "February":
+                            month = "02";
+                            break;
+                        case "March":
+                            month = "03";
+                            break;
+                        case "April":
+                            month = "04";
+                            break;
+                        case "May":
+                            month = "05";
+                            break;
+                        case "June":
+                            month = "06";
+                            break;
+                        case "July":
+                            month = "07";
+                            break;
+                        case "August":
+                            month = "08";
+                            break;
+                        case "September":
+                            month = "09";
+                            break;
+                        case "October":
+                            month = "10";
+                            break;
+                        case "November":
+                            month = "11";
+                            break;
+                        case "December":
+                            month = "12";
+                            break;
+                        default:
+                            System.out.println("Invalid month. Please try again.");
+                            continue;
+                    }
+
+                    // put the day, month, year in the format yyyy-MM-dd
+                    String dateString = year + "-" + month + "-" + day;
 
                     Event event = new Event(title, dateString, time, location, description);
                     calendar.get(month).get(day).add(event);

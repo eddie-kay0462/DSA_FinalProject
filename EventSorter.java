@@ -1,14 +1,6 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 
-class Event {
-    String date;
-    String title;
-    int priority;
-
-    // Add constructor, getters, setters, and other methods as needed
-}
-
 public class EventSorter {
     public static void mergeSort(ArrayList<Event> events, String attribute, boolean reverse) {
         if (events.size() < 2) {
