@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Calendar {
     public static boolean isLeapYear(int year) {
@@ -43,13 +44,33 @@ public class Calendar {
         }
     }
 
-    public static void main(String[] args) {
-        int year = 2024;
-        HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = createCalendar(year);
-
-        // Print the calendar structure
+    // search for an event in the calendar using SearchingEvent class by title
+    public static Event searchEvent(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, String title) {
         for (String month : calendar.keySet()) {
-            System.out.println(month + ": " + calendar.get(month).keySet());
+            for (int day : calendar.get(month).keySet()) {
+                SearchingEvent.searchEventByTitle(calendar.get(month).get(day), title);
+            }
         }
+        return null;
+    }
+
+    // search for an event in the calendar using SearchingEvent class by date
+    public static Event searchEvent(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, LocalDate date) {
+        for (String month : calendar.keySet()) {
+            for (int day : calendar.get(month).keySet()) {
+                SearchingEvent.searchEventByDate(calendar.get(month).get(day), date);
+            }
+        }
+        return null;
+    }
+
+    // search for an event in the calendar using SearchingEvent class by location
+    public static Event searchEventLocation(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, String location) {
+        for (String month : calendar.keySet()) {
+            for (int day : calendar.get(month).keySet()) {
+                SearchingEvent.searchEventByLocation(calendar.get(month).get(day), location);
+            }
+        }
+        return null;
     }
 }

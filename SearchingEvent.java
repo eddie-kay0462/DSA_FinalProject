@@ -8,7 +8,7 @@ public class SearchingEvent {
      * @param title
      * @return
      */
-    public Event searchEventByTitle(ArrayList<Event> events, String title) {
+    public static Event searchEventByTitle(ArrayList<Event> events, String title) {
         // Assuming events are already sorted by title
         int index = binarySearchByTitle(events, title);
         if (index >= 0) {
@@ -23,7 +23,7 @@ public class SearchingEvent {
      * @param date
      * @return
      */
-    public Event searchEventByDate(ArrayList<Event> events, LocalDate date) {
+    public static Event searchEventByDate(ArrayList<Event> events, LocalDate date) {
         // Assuming events are already sorted by date
         int index = binarySearchByDate(events, date);
         if (index >= 0) {
@@ -32,7 +32,7 @@ public class SearchingEvent {
         return null;
     }
 
-    public Event searchEventByLocation(ArrayList<Event> events, String location) {
+    public static Event searchEventByLocation(ArrayList<Event> events, String location) {
         // Assuming events are already sorted by location
         int index = binarySearchByLocation(events, location);
         if (index >= 0) {
@@ -41,7 +41,7 @@ public class SearchingEvent {
         return null;
     }
 
-    public int binarySearchByDate(ArrayList<Event> events, LocalDate date) {
+    public static int binarySearchByDate(ArrayList<Event> events, LocalDate date) {
         int low = 0;
         int high = events.size() - 1;
         while (low <= high) {
@@ -58,7 +58,7 @@ public class SearchingEvent {
         return -1;
     }
 
-    public int binarySearchByTitle(ArrayList<Event> events, String title) {
+    public static int binarySearchByTitle(ArrayList<Event> events, String title) {
         int low = 0;
         int high = events.size() - 1;
         while (low <= high) {
@@ -76,7 +76,7 @@ public class SearchingEvent {
         return -1;
     }
 
-    public int binarySearchByLocation(ArrayList<Event> events, String location) {
+    public static int binarySearchByLocation(ArrayList<Event> events, String location) {
         int low = 0;
         int high = events.size() - 1;
         while (low <= high) {

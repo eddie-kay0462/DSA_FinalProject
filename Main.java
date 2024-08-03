@@ -3,6 +3,7 @@
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,7 +30,8 @@ public class Main {
             System.out.println("1. Add an event");
             System.out.println("2. View events");
             System.out.println("3. Sort events");
-            System.out.println("4. Exit");
+            System.out.println("4. Search for an event");
+            System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = input.nextInt();
             input.nextLine(); // Consume newline
@@ -124,7 +126,55 @@ public class Main {
                     Calendar.sortEvents(calendar, attribute, reverse);
                     System.out.println("Events sorted successfully!");
                     break;
+                //searching for an event 
                 case 4:
+                    //print the options for searching
+                    System.out.println("Search by:");
+                    System.out.println("1. Title");
+                    System.out.println("2. Date");
+                    System.out.println("3. Location");
+                    System.out.print("Enter your choice: ");
+                    int searchChoice = input.nextInt();
+                    input.nextLine(); // Consume newline
+
+                    switch (searchChoice) {
+                        case 1:
+                            System.out.print("Enter the title to search for: ");
+                            title = input.nextLine();
+                            Event searchedEvent = Calendar.searchEvent(calendar, title);
+                            if (searchedEvent != null) {
+                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                            } else {
+                                System.out.println("Event not found.");
+                            }
+                            break;
+                        case 2:
+                            System.out.print("Enter the date to search for (yyyy-MM-dd): ");
+                            dateString = input.nextLine();
+                            LocalDate date = LocalDate.parse(dateString);
+                            searchedEvent = Calendar.searchEvent(calendar, date);
+                            if (searchedEvent != null) {
+                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                            } else {
+                                System.out.println("Event not found.");
+                            }
+                            break;
+                        case 3:
+                            System.out.print("Enter the location to search for: ");
+                            String locat = input.nextLine();
+                            searchedEvent = Calendar.searchEventLocation(calendar, locat);
+                            if (searchedEvent != null) {
+                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                            } else {
+                                System.out.println("Event not found.");
+                            }
+                            break;
+                        default:
+                            System.out.println("Invalid choice. Please try again.");
+                    }
+
+
+                case 5:
                     running = false;
                     break;
                 default:
