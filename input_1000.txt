@@ -990,6 +990,14 @@
 "Veterans Day Memorial Service", "2089-11-11", "10:00 AM", "Veterans Memorial", "Join us for a solemn Memorial Service to honor our veterans. Listen to speeches, lay wreaths, and show your appreciation for those who have served our country."
 "Winter Wonderland Parade", "2089-12-01", "06:00 PM", "Downtown", "Kick off the holiday season with our Winter Wonderland Parade. Enjoy festive floats, marching bands, and a visit from Santa Claus. A magical evening for the whole family."
 "New Year's Eve Masquerade Gala", "2089-12-31", "08:00 PM", "Grand Ballroom", "Ring in the New Year with elegance at our Masquerade Gala. Enjoy live music, dancing, gourmet food, and a champagne toast at midnight. Dress in your finest attire and masks for a night of mystery and glamour."
+"Easter Bunny Hop", "2090-04-05", "10:00 AM", "City Park", "Bring your kids for a fun-filled Easter Bunny Hop. Enjoy egg hunts, games, and prizes. Don't forget to bring your baskets and cameras for photos with the Easter Bunny."
+"Mother's Day High Tea", "2090-05-10", "02:00 PM", "Grand Hotel", "Treat your mom to a luxurious High Tea experience at the Grand Hotel. Enjoy a selection of fine teas, delicate pastries, and live music in an elegant setting."
+"Father's Day Barbecue Bash", "2090-06-21", "11:00 AM", "Community Park", "Celebrate Father's Day with a Barbecue Bash. Enjoy grilled favorites, live music, games, and activities for the whole family. A fun-filled day for fathers and their families."
+"Summer Solstice Music and Arts Festival", "2090-06-21", "10:00 AM", "Beachfront", "Celebrate the Summer Solstice with a day of music and arts. Enjoy live performances, art exhibits, food stalls, and family-friendly activities by the beach."
+"Fourth of July Picnic and Fireworks", "2090-07-04", "12:00 PM", "City Park", "Join us for a traditional Fourth of July Picnic followed by a spectacular fireworks display. Enjoy games, food, live entertainment, and a festive atmosphere with your community."
+"Summer Outdoor Movie Nights", "2090-08-10", "08:00 PM", "Community Park", "Bring a blanket and enjoy classic movies under the stars at our Summer Outdoor Movie Nights. Snacks and drinks will be available for purchase. A perfect way to spend summer evenings."
+"Fall Harvest Festival", "2090-09-15", "10:00 AM", "Fairgrounds", "Celebrate the bounty of the season at our Fall Harvest Festival. Enjoy carnival rides, agricultural exhibits, live entertainment, and delicious food from local vendors."
+"Halloween Trick-or-Treat Festival", "2090-10-31", "05:00 PM", "Main Street", "Bring your kids for a safe and fun Trick-or-Treat Festival. Enjoy decorated stations, games, and plenty of treats along Main Street. A perfect way to celebrate Halloween."
 
 
 
