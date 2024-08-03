@@ -86,6 +86,7 @@ public class Main {
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-      
+      System.out.println("Thank you for using the Event Planner!");
+      input.close();
     }
 }
