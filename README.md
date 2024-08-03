@@ -96,3 +96,57 @@ Event event2 = new Event(2, "Workshop", LocalDate.of(2024, 8, 5), "2:00 PM", "Ma
 - LinkedList class implementation (should be included in your project)
 
 For more details, refer to the class documentation or contact support.
+
+# 3. Calendar Class
+
+## Overview
+
+The `Calendar` class provides tools for creating and managing a calendar structure for a specified year. It supports the creation of a calendar with months and days, handling leap years, and sorting events by various attributes. The calendar is implemented using nested `HashMap` structures to map months and days to lists of events.
+
+## Features
+
+- **Leap Year Calculation:** Determines if a given year is a leap year, adjusting the number of days in February accordingly.
+- **Create Calendar:** Constructs a calendar for a specified year with months and days. Each day has an associated list to store `Event` objects.
+- **Sort Events:** Allows sorting of events within the calendar by attributes such as title, date, or priority. Sorting is performed using the `EventSorter` class and supports both ascending and descending order.
+- **Print Calendar Structure:** Provides a way to print the structure of the calendar, displaying months and their days.
+
+## Methods
+
+- **`isLeapYear(int year)`**  
+  Checks if the given year is a leap year. Returns `true` if it is, otherwise `false`.
+
+- **`createCalendar(int year)`**  
+  Creates a `HashMap` representing the calendar for the specified year. Each month maps to another `HashMap` of days, with each day initially holding an empty list of `Event` objects.
+
+- **`sortEvents(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, String attribute, boolean reverse)`**  
+  Sorts events in the calendar based on the specified attribute (title, date, or priority) and order (ascending or descending). Uses the `EventSorter` class for sorting.
+
+- **`main(String[] args)`**  
+  Demonstrates the creation of a calendar for the year 2024 and prints the calendar structure, showing months and their respective days.
+
+## Usage
+
+1. **Creating a Calendar:**
+   ```java
+   int year = 2024;
+   HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = Calendar.createCalendar(year);
+   ```
+
+2. **Sorting Events:**
+   ```java
+   Calendar.sortEvents(calendar, "title", false); // Sort events by title in ascending order
+   ```
+
+3. **Printing Calendar Structure:**
+   ```java
+   for (String month : calendar.keySet()) {
+       System.out.println(month + ": " + calendar.get(month).keySet());
+   }
+   ```
+
+## Requirements
+
+- Java Development Kit (JDK) 8 or higher
+- `Event` class and `EventSorter` class implementations
+
+For more information, consult the class documentation or reach out for support.
