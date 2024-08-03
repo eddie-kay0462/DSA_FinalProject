@@ -41,9 +41,8 @@ public class Event {
      * @param description A description of the event.
      * @throws IllegalArgumentException If the date format is invalid.
      */
-    public Event(int priority, String title, String dateString, String time, String location, String description) {
+    public Event(String title, String dateString, String time, String location, String description) {
         this.id = generateId();
-        this.priority = priority;
         this.title = title;
         this.date = parseDate(dateString);
         this.time = time;
@@ -56,25 +55,6 @@ public class Event {
         }
     }
 
-    /**
-     * Creating an event with the provided details and automatically generating a unique ID.
-     *
-     * @param i
-     * @param title       The title of the event.
-     * @param date        The date of the event as a LocalDate object.
-     * @param time        The time of the event.
-     * @param location    The location where the event is taking place.
-     * @param description A description of the event.
-     */
-    public Event(int i, int priority, String title, LocalDate date, String time, String location, String description) {
-        this.id = generateId();
-        this.priority = priority; 
-        this.title = title;
-        this.date = date;
-        this.time = time;
-        this.location = location;
-        this.description = description;
-    }
 
     //getter methods 
     public int getId() { return this.id; }
