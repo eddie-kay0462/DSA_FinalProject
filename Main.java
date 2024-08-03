@@ -1,5 +1,3 @@
-// main class to create an event planner for the user using the Event, EventSorter, and Calendar classes.
-
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,18 +8,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Welcome to the Event Planner!");
-
-        System.out.print("Enter the year for the calendar: ");
-        int year = input.nextInt();
-
-        HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = Calendar.createCalendar(year);
-
-        System.out.println("Calendar for " + year + ":");
-
-        // Print the calendar structure
-        for (String month : calendar.keySet()) {
-            System.out.println(month + ": " + calendar.get(month).keySet());
-        }
+        Year_Calendar yearCalendar = new Year_Calendar();
 
         // interactive menu
         boolean running = true;
@@ -38,6 +25,9 @@ public class Main {
 
             switch (choice) {
                 case 1:
+                    System.out.print("Enter the year: ");
+                    int year = input.nextInt();
+                    input.nextLine(); // Consume newline
                     System.out.print("Enter the month: ");
                     String month = input.nextLine();
                     System.out.print("Enter the day: ");
@@ -46,7 +36,6 @@ public class Main {
 
                     System.out.print("Enter the title: ");
                     String title = input.nextLine();
-                  
                     System.out.print("Enter the time: ");
                     String time = input.nextLine();
                     System.out.print("Enter the location: ");
@@ -54,81 +43,72 @@ public class Main {
                     System.out.print("Enter the description: ");
                     String description = input.nextLine();
 
-                    //map the month to a number
-                    switch (month) {
-                        case "January":
-                            month = "01";
-                            break;
-                        case "February":
-                            month = "02";
-                            break;
-                        case "March":
-                            month = "03";
-                            break;
-                        case "April":
-                            month = "04";
-                            break;
-                        case "May":
-                            month = "05";
-                            break;
-                        case "June":
-                            month = "06";
-                            break;
-                        case "July":
-                            month = "07";
-                            break;
-                        case "August":
-                            month = "08";
-                            break;
-                        case "September":
-                            month = "09";
-                            break;
-                        case "October":
-                            month = "10";
-                            break;
-                        case "November":
-                            month = "11";
-                            break;
-                        case "December":
-                            month = "12";
-                            break;
-                        default:
-                            System.out.println("Invalid month. Please try again.");
-                            continue;
+                    String monthNumber = getMonthNumber(month);
+                    if (monthNumber == null) {
+                        System.out.println("Invalid month. Please try again.");
+                        continue;
                     }
 
-                    // put the day, month, year in the format yyyy-MM-dd
-                    String dateString = year + "-" + month + "-" + day;
+                    // Check if the day map is properly initialized
+                    if (!yearCalendar.getCalendar(year).containsKey(monthNumber)) {
+                        yearCalendar.getCalendar(year).put(monthNumber, new HashMap<>());
+                    }
+                    if (!yearCalendar.getCalendar(year).get(monthNumber).containsKey(day)) {
+                        yearCalendar.getCalendar(year).get(monthNumber).put(day, new ArrayList<>());
+                    }
+
+                    // Put the day, month, year in the format yyyy-MM-dd
+                    String dateString = year + "-" + monthNumber + "-" + String.format("%02d", day);
 
                     Event event = new Event(title, dateString, time, location, description);
-                    calendar.get(month).get(day).add(event);
-                    System.out.println("Event added successfully!");
+                    yearCalendar.getCalendar(year).get(monthNumber).get(day).add(event);
                     break;
                 case 2:
+                    System.out.print("Enter the year: ");
+                    year = input.nextInt();
+                    input.nextLine(); // Consume newline
                     System.out.print("Enter the month: ");
                     month = input.nextLine();
                     System.out.print("Enter the day: ");
                     day = input.nextInt();
                     input.nextLine(); // Consume newline
 
-                    System.out.println("Events on " + month + " " + day + ":");
-                    for (Event e : calendar.get(month).get(day)) {
-                        System.out.println(e.title + " " + e.date + " " + e.priority);
+                    String viewMonthNumber = getMonthNumber(month);
+                    if (viewMonthNumber == null) {
+                        System.out.println("Invalid month. Please try again.");
+                        continue;
                     }
+
+                    HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = yearCalendar.getCalendar(year);
+                    if (calendar.containsKey(viewMonthNumber) && calendar.get(viewMonthNumber).containsKey(day)) {
+                        for (Event e : calendar.get(viewMonthNumber).get(day)) {
+                            System.out.println(e.getTitle() + " " + e.getDate() + " " + e.getLocation() + " " + e.getDescription());
+                        }
+                    } else {
+                        System.out.println("No events found for the specified date.");
+                    }
+
+                    System.out.println("Events displayed successfully!");
                     break;
                 case 3:
-                    System.out.print("Enter the attribute to sort by (date, title, priority): ");
+                    System.out.print("Enter the year: ");
+                    year = input.nextInt();
+                    input.nextLine(); // Consume newline
+                    System.out.print("Enter the attribute to sort by (date, title, location): ");
                     String attribute = input.nextLine();
                     System.out.print("Sort in reverse order (true/false): ");
                     boolean reverse = input.nextBoolean();
                     input.nextLine(); // Consume newline
 
+                    calendar = yearCalendar.getCalendar(year);
+
                     Calendar.sortEvents(calendar, attribute, reverse);
                     System.out.println("Events sorted successfully!");
                     break;
-                //searching for an event 
                 case 4:
-                    //print the options for searching
+                    System.out.print("Enter the year: ");
+                    year = input.nextInt();
+                    input.nextLine(); // Consume newline
                     System.out.println("Search by:");
                     System.out.println("1. Title");
                     System.out.println("2. Date");
@@ -137,51 +117,74 @@ public class Main {
                     int searchChoice = input.nextInt();
                     input.nextLine(); // Consume newline
 
+                    Event foundEvent = null;
                     switch (searchChoice) {
                         case 1:
-                            System.out.print("Enter the title to search for: ");
-                            title = input.nextLine();
-                            Event searchedEvent = Calendar.searchEvent(calendar, title);
-                            if (searchedEvent != null) {
-                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
-                            } else {
-                                System.out.println("Event not found.");
-                            }
+                            System.out.print("Enter the title: ");
+                            String searchTitle = input.nextLine();
+                            foundEvent = Calendar.searchEvent(yearCalendar.getCalendar(year), searchTitle);
                             break;
                         case 2:
-                            System.out.print("Enter the date to search for (yyyy-MM-dd): ");
-                            dateString = input.nextLine();
-                            LocalDate date = LocalDate.parse(dateString);
-                            searchedEvent = Calendar.searchEvent(calendar, date);
-                            if (searchedEvent != null) {
-                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
-                            } else {
-                                System.out.println("Event not found.");
-                            }
+                            System.out.print("Enter the date (yyyy-MM-dd): ");
+                            String searchDate = input.nextLine();
+                            foundEvent = Calendar.searchEvent(yearCalendar.getCalendar(year), LocalDate.parse(searchDate));
                             break;
                         case 3:
-                            System.out.print("Enter the location to search for: ");
-                            String locat = input.nextLine();
-                            searchedEvent = Calendar.searchEventLocation(calendar, locat);
-                            if (searchedEvent != null) {
-                                System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
-                            } else {
-                                System.out.println("Event not found.");
-                            }
+                            System.out.print("Enter the location: ");
+                            String searchLocation = input.nextLine();
+                            foundEvent = Calendar.searchEventLocation(yearCalendar.getCalendar(year), searchLocation);
                             break;
                         default:
-                            System.out.println("Invalid choice. Please try again.");
+                            System.out.println("Invalid choice.");
+                            continue;
                     }
 
-
+                    if (foundEvent != null) {
+                        System.out.println("Event found: " + foundEvent.title + " on " + foundEvent.date);
+                    } else {
+                        System.out.println("Event not found.");
+                    }
+                    break;
                 case 5:
                     running = false;
+                    System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
         }
-      System.out.println("Thank you for using the Event Planner!");
-      input.close();
+
+        input.close();
+    }
+
+    private static String getMonthNumber(String month) {
+        switch (month) {
+            case "January":
+                return "01";
+            case "February":
+                return "02";
+            case "March":
+                return "03";
+            case "April":
+                return "04";
+            case "May":
+                return "05";
+            case "June":
+                return "06";
+            case "July":
+                return "07";
+            case "August":
+                return "08";
+            case "September":
+                return "09";
+            case "October":
+                return "10";
+            case "November":
+                return "11";
+            case "December":
+                return "12";
+            default:
+                return null;
+        }
     }
 }

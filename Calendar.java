@@ -35,7 +35,7 @@ public class Calendar {
         return calendar;
     }
 
-    //sort the events  by title, date, or priority using the EventsSorter class
+    // Sort the events by title, date, or priority using the EventSorter class
     public static void sortEvents(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, String attribute, boolean reverse) {
         for (String month : calendar.keySet()) {
             for (int day : calendar.get(month).keySet()) {
@@ -44,31 +44,42 @@ public class Calendar {
         }
     }
 
-    // search for an event in the calendar using SearchingEvent class by title
+    // Search for an event in the calendar using SearchingEvent class by title
     public static Event searchEvent(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, String title) {
         for (String month : calendar.keySet()) {
             for (int day : calendar.get(month).keySet()) {
-                SearchingEvent.searchEventByTitle(calendar.get(month).get(day), title);
+                Event result = SearchingEvent.searchEventByTitle(calendar.get(month).get(day), title);
+                if (result != null) {
+                    return result;
+                }
             }
         }
         return null;
     }
 
-    // search for an event in the calendar using SearchingEvent class by date
+    // Search for an event in the calendar using SearchingEvent class by date
     public static Event searchEvent(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, LocalDate date) {
         for (String month : calendar.keySet()) {
-            for (int day : calendar.get(month).keySet()) {
-                SearchingEvent.searchEventByDate(calendar.get(month).get(day), date);
+            int day = date.getDayOfMonth();
+            String monthName = date.getMonth().toString();
+            if (calendar.containsKey(monthName) && calendar.get(monthName).containsKey(day)) {
+                Event result = SearchingEvent.searchEventByDate(calendar.get(monthName).get(day), date);
+                if (result != null) {
+                    return result;
+                }
             }
         }
         return null;
     }
 
-    // search for an event in the calendar using SearchingEvent class by location
+    // Search for an event in the calendar using SearchingEvent class by location
     public static Event searchEventLocation(HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar, String location) {
         for (String month : calendar.keySet()) {
             for (int day : calendar.get(month).keySet()) {
-                SearchingEvent.searchEventByLocation(calendar.get(month).get(day), location);
+                Event result = SearchingEvent.searchEventByLocation(calendar.get(month).get(day), location);
+                if (result != null) {
+                    return result;
+                }
             }
         }
         return null;
