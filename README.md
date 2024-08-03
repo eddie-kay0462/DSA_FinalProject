@@ -150,3 +150,83 @@ The `Calendar` class provides tools for creating and managing a calendar structu
 - `Event` class and `EventSorter` class implementations
 
 For more information, consult the class documentation or reach out for support.
+
+# 4. EventSorter Class
+
+## Overview
+
+The `EventSorter` class provides functionality to sort a list of `Event` objects using the merge sort algorithm. This class is designed to handle sorting by different attributes of the events, such as date, title, and priority. It supports both ascending and descending order sorting.
+
+## Features
+
+- **Merge Sort Implementation:** The class uses the merge sort algorithm, which is stable and efficient with a time complexity of O(n log n).
+- **Flexible Attribute Sorting:** Allows sorting by different attributes: date, title, or priority.
+- **Order Specification:** Supports sorting in both ascending and descending order.
+
+## Methods
+
+### `mergeSort`
+
+```java
+public static void mergeSort(ArrayList<Event> events, String attribute, boolean reverse)
+```
+
+- **Description:** Recursively splits the list of events into smaller sublists, sorts each sublist, and merges them back together in sorted order.
+- **Parameters:**
+  - `events`: The list of `Event` objects to be sorted.
+  - `attribute`: The attribute by which to sort the events (`date`, `title`, or `priority`).
+  - `reverse`: A boolean indicating whether to sort in descending order.
+
+### `merge`
+
+```java
+private static void merge(ArrayList<Event> events, ArrayList<Event> left, ArrayList<Event> right, String attribute, boolean reverse)
+```
+
+- **Description:** Merges two sorted sublists into a single sorted list.
+- **Parameters:**
+  - `events`: The original list to store the merged result.
+  - `left`: The left sublist.
+  - `right`: The right sublist.
+  - `attribute`: The attribute by which to sort the events.
+  - `reverse`: A boolean indicating whether to sort in descending order.
+
+### `compareByAttribute`
+
+```java
+private static int compareByAttribute(Event a, Event b, String attribute)
+```
+
+- **Description:** Compares two `Event` objects based on the specified attribute.
+- **Parameters:**
+  - `a`: The first `Event` object.
+  - `b`: The second `Event` object.
+  - `attribute`: The attribute by which to compare the events.
+- **Returns:** An integer indicating the comparison result.
+
+## Usage
+
+### Example
+
+```java
+import java.util.ArrayList;
+
+public class EventSorterExample {
+    public static void main(String[] args) {
+        ArrayList<Event> events = new ArrayList<>();
+        // Add events to the list
+
+        EventSorter.mergeSort(events, "date", false);
+        for (Event event : events) {
+            System.out.println(event.title + " " + event.date + " " + event.priority);
+        }
+    }
+}
+```
+
+In this example, the `EventSorter` class is used to sort a list of `Event` objects by their date attribute in ascending order. The sorted list is then printed out.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
