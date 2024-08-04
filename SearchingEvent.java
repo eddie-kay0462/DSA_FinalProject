@@ -9,7 +9,8 @@ public class SearchingEvent {
      * @return
      */
     public static Event searchEventByTitle(ArrayList<Event> events, String title) {
-        // Assuming events are already sorted by title
+        // Sort the events by title before searching
+        EventSorter.mergeSort(events, "title", false);
         int index = binarySearchByTitle(events, title);
         if (index >= 0) {
             return events.get(index);
@@ -18,13 +19,14 @@ public class SearchingEvent {
     }
 
     /**
-     * search for an event by date
+     * Search for an event by date
      * @param events
      * @param date
      * @return
      */
     public static Event searchEventByDate(ArrayList<Event> events, LocalDate date) {
-        // Assuming events are already sorted by date
+        // Sort the events by date before searching
+        EventSorter.mergeSort(events, "date", false);
         int index = binarySearchByDate(events, date);
         if (index >= 0) {
             return events.get(index);
@@ -33,7 +35,9 @@ public class SearchingEvent {
     }
 
     public static Event searchEventByLocation(ArrayList<Event> events, String location) {
-        // Assuming events are already sorted by location
+        // Sort the events by location before searching
+        // Note: You may need to adjust the sorting method to include "location" if not already supported
+        EventSorter.mergeSort(events, "location", false);
         int index = binarySearchByLocation(events, location);
         if (index >= 0) {
             return events.get(index);

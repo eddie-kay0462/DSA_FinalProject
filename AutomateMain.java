@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.time.LocalDate;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class AutomateMain {
 
@@ -16,9 +15,9 @@ public class AutomateMain {
         String fileName = input.nextLine();
 
         // Load events from file
-        HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = loadEventsFromFile(fileName);
+        Year_Calendar yearCalendar = loadEventsFromFile(fileName);
 
-        if (calendar == null) {
+        if (yearCalendar == null) {
             System.out.println("Failed to load events from file.");
             return;
         }
@@ -48,22 +47,26 @@ public class AutomateMain {
                     input.nextLine(); // Consume newline
 
                     Event searchedEvent = null;
+                    System.out.print("Enter the year of the event: ");
+                    int year = input.nextInt();
+                    input.nextLine(); // Consume newline
+
                     switch (searchChoice) {
                         case 1:
                             System.out.print("Enter the title to search for: ");
                             String title = input.nextLine();
-                            searchedEvent = Calendar.searchEvent(calendar, title);
+                            searchedEvent = Calendar.searchEvent(yearCalendar.getCalendar(year), title);
                             break;
                         case 2:
                             System.out.print("Enter the date to search for (yyyy-MM-dd): ");
                             String dateString = input.nextLine();
                             LocalDate date = LocalDate.parse(dateString);
-                            searchedEvent = Calendar.searchEvent(calendar, date);
+                            searchedEvent = Calendar.searchEvent(yearCalendar.getCalendar(year), date);
                             break;
                         case 3:
                             System.out.print("Enter the location to search for: ");
                             String location = input.nextLine();
-                            searchedEvent = Calendar.searchEventLocation(calendar, location);
+                            searchedEvent = Calendar.searchEventLocation(yearCalendar.getCalendar(year), location);
                             break;
                         default:
                             System.out.println("Invalid choice. Please try again.");
@@ -74,7 +77,7 @@ public class AutomateMain {
                     System.out.println("Time taken to search: " + (endTimeSearch - startTimeSearch) + " ms");
 
                     if (searchedEvent != null) {
-                        System.out.println("Event found: " + searchedEvent.title + " " + searchedEvent.date + " " + searchedEvent.priority);
+                        System.out.println("Event found: " + searchedEvent.getTitle() + " on " + searchedEvent.getDate());
                     } else {
                         System.out.println("Event not found.");
                     }
@@ -84,13 +87,16 @@ public class AutomateMain {
                     long startTimeSort = System.currentTimeMillis();
 
                     // Sorting options
+                    System.out.print("Enter the year of the events to sort: ");
+                    int sortYear = input.nextInt();
+                    input.nextLine(); // Consume newline
                     System.out.print("Enter the attribute to sort by (date, title, priority): ");
                     String attribute = input.nextLine();
                     System.out.print("Sort in reverse order (true/false): ");
                     boolean reverse = input.nextBoolean();
                     input.nextLine(); // Consume newline
 
-                    Calendar.sortEvents(calendar, attribute, reverse);
+                    Calendar.sortEvents(yearCalendar.getCalendar(sortYear), attribute, reverse);
 
                     long endTimeSort = System.currentTimeMillis();
                     System.out.println("Time taken to sort: " + (endTimeSort - startTimeSort) + " ms");
@@ -110,18 +116,14 @@ public class AutomateMain {
         input.close();
     }
 
-    private static HashMap<String, HashMap<Integer, ArrayList<Event>>> loadEventsFromFile(String fileName) {
-        HashMap<String, HashMap<Integer, ArrayList<Event>>> calendar = new HashMap<>();
+    private static Year_Calendar loadEventsFromFile(String fileName) {
+        Year_Calendar yearCalendar = new Year_Calendar();
 
         try (Scanner fileScanner = new Scanner(new File(fileName))) {
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine();
-                String[] parts = line.split(",");
+                String[] parts = line.split(";");
 
-                //print the parts 
-                for (String part : parts) {
-                    System.out.println(part);
-                }
 
                 if (parts.length != 5) {
                     System.out.println("Invalid event format in file.");
@@ -134,21 +136,25 @@ public class AutomateMain {
                 String location = parts[3];
                 String description = parts[4];
 
+                System.out.println("Title: " + title);
+                System.out.println("Date: " + date);
+
                 LocalDate eventDate = LocalDate.parse(date);
+                int year = eventDate.getYear();
                 String month = String.format("%02d", eventDate.getMonthValue());
                 int day = eventDate.getDayOfMonth();
 
                 Event event = new Event(title, date, time, location, description);
 
-                calendar.putIfAbsent(month, new HashMap<>());
-                calendar.get(month).putIfAbsent(day, new ArrayList<>());
-                calendar.get(month).get(day).add(event);
+                yearCalendar.getCalendar(year).putIfAbsent(month, new HashMap<>());
+                yearCalendar.getCalendar(year).get(month).putIfAbsent(day, new ArrayList<>());
+                yearCalendar.getCalendar(year).get(month).get(day).add(event);
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + fileName);
             return null;
         }
 
-        return calendar;
+        return yearCalendar;
     }
 }

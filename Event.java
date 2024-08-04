@@ -98,6 +98,21 @@ public class Event {
         return null;
     }
 
+    // //generate summary of the event
+    // public String generateSummary() {
+    //     if (this.description == null || this.description.isEmpty()) {
+    //         return "No description available.";
+    //     }
+    //     else {
+    //         try{
+    //             if (this.description.length() > 512) {
+    //                 return HuggingFaceAPI.generateSummary(this.description);
+    //             }
+    //         } catch (Exception e) {
+    //             return "Error generating summary: " + e.getMessage();
+    //         }
+    // }
+
     /**
      * Providing a string representation of the event.
      *
