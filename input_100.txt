@@ -99,10 +99,5 @@
 "Book Club Meeting;2024-11-20;19:00;Local Library Your City;A monthly gathering of book lovers to discuss their favorite reads and exchange recommendations"
 "Tech Startup Pitch Competition;2024-12-12;14:00;Co-working Space Your City;A platform for aspiring entrepreneurs to present their innovative ideas to a panel of investors and industry experts"
 "Film Screening and Q&A;2025-01-18;20:00;Independent Cinema Your City;A special screening of an independent film followed by a discussion with the director and cast"
-"Fashion Design Workshop;2025-02-22;11:00;Community Center Your City;A hands-on workshop for aspiring fashion designers to learn basic sewing and design techniques"
-"Music Jam Session;2025-03-25;19:00;Local Music Venue Your City;An open mic night for musicians of all levels to come together and perform or simply enjoy the music"
-"Book Signing Event;2025-04-28;16:00;Local Bookstore Your City;An opportunity to meet a bestselling author and get their book signed"
-"Art Therapy Workshop;2025-05-31;10:00;Mental Health Center Your City;A therapeutic session using art as a medium for self-expression and relaxation"
-"Sports Clinic;2025-06-22;14:00;Local Park Your City;Free sports coaching and training sessions for children and adults"
-"Scientific Experiment Demonstration;2025-07-19;11:00;Science Museum Your City;Interactive demonstrations of exciting scientific experiments"
+
 
