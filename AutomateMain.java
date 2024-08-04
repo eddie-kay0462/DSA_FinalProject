@@ -35,8 +35,6 @@ public class AutomateMain {
 
             switch (choice) {
                 case 1:
-                    long startTimeSearch = System.currentTimeMillis();
-
                     // Search options
                     System.out.println("Search by:");
                     System.out.println("1. Title");
@@ -51,11 +49,16 @@ public class AutomateMain {
                     int year = input.nextInt();
                     input.nextLine(); // Consume newline
 
+                    long startTimeSearch = 0;
+                    long endTimeSearch = 0;
+
                     switch (searchChoice) {
                         case 1:
                             System.out.print("Enter the title to search for: ");
                             String title = input.nextLine();
+                            startTimeSearch = System.currentTimeMillis();
                             searchedEvent = Calendar.searchEvent(yearCalendar.getCalendar(year), title);
+                            endTimeSearch = System.currentTimeMillis();
                             break;
                         case 2:
                             System.out.print("Enter the date to search for (yyyy-MM-dd): ");
@@ -73,19 +76,18 @@ public class AutomateMain {
                             continue;
                     }
 
-                    long endTimeSearch = System.currentTimeMillis();
-                    System.out.println("Time taken to search: " + (endTimeSearch - startTimeSearch) + " ms");
-
+                    
+                    
+                    
                     if (searchedEvent != null) {
                         System.out.println("Event found: " + searchedEvent.getTitle() + " on " + searchedEvent.getDate());
                     } else {
                         System.out.println("Event not found.");
                     }
+                    System.out.println("Time taken to search: " + (endTimeSearch - startTimeSearch) + " ms");
                     break;
 
                 case 2:
-                    long startTimeSort = System.currentTimeMillis();
-
                     // Sorting options
                     System.out.print("Enter the year of the events to sort: ");
                     int sortYear = input.nextInt();
@@ -95,6 +97,10 @@ public class AutomateMain {
                     System.out.print("Sort in reverse order (true/false): ");
                     boolean reverse = input.nextBoolean();
                     input.nextLine(); // Consume newline
+
+                    //start time for sorting
+
+                    long startTimeSort = System.currentTimeMillis();
 
                     Calendar.sortEvents(yearCalendar.getCalendar(sortYear), attribute, reverse);
 
