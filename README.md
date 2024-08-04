@@ -384,78 +384,8 @@ In this example, the `SearchingEvent` class is used to add events, and search fo
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-# 7. EventScheduler Class
 
-## Overview
-
-The `EventScheduler` class provides functionality to manage and search for events based on various attributes such as title, date, and location. By leveraging binary search algorithms, it ensures efficient and accurate retrieval of events from a sorted list, making it ideal for applications with frequent queries on large datasets.
-
-## Features
-
-- **Event Management:** Efficiently manage events by adding, updating, and maintaining a sorted list.
-- **Binary Search:** Utilizes binary search algorithms to quickly find events based on specific attributes.
-
-## Methods
-
-### `searchEventsByMeeting(String title)`
-
-This method searches for an event by its title.
-
-- **Parameters:** `title` - the title of the event to search for.
-- **Returns:** `Event` - the event with the specified title.
-
-### `searchEventByDate(LocalDate date)`
-
-This method searches for an event by its date.
-
-- **Parameters:** `date` - the date of the event to search for.
-- **Returns:** `Event` - the event with the specified date.
-
-### `searchEventByLocation(String location)`
-
-This method searches for an event by its location.
-
-- **Parameters:** `location` - the location of the event to search for.
-- **Returns:** `Event` - the event with the specified location.
-
-## Usage
-
-To use the `EventScheduler` class, instantiate it and use the provided methods to manage and search for events.
-
-### Example
-
-```java
-// Create an instance of EventScheduler
-EventScheduler scheduler = new EventScheduler();
-
-// Add events to the scheduler (example not provided in the original code)
-
-// Search for an event by title
-Event eventByTitle = scheduler.searchEventsByMeeting("Team Meeting");
-System.out.println(eventByTitle);
-
-// Search for an event by date
-Event eventByDate = scheduler.searchEventByDate(LocalDate.of(2024, 8, 3));
-System.out.println(eventByDate);
-
-// Search for an event by location
-Event eventByLocation = scheduler.searchEventByLocation("Conference Room");
-System.out.println(eventByLocation);
-```
-
-## Error Handling
-
-Ensure that the list of events is sorted before performing any search operations to guarantee the accuracy and efficiency of the binary search algorithm.
-
-## Contributing
-
-If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
-
-# 8. AutomateMain Class
+# 7. AutomateMain Class
 
 ## Overview
 
@@ -524,7 +454,7 @@ Certainly! Here’s the README documentation for the `Year_Calendar` class:
 
 ---
 
-# 9. Year_Calendar Class
+# 8. Year_Calendar Class
 
 ## Overview
 
