@@ -83,6 +83,7 @@ public class Main {
                     if (calendar.containsKey(viewMonthNumber) && calendar.get(viewMonthNumber).containsKey(day)) {
                         for (Event e : calendar.get(viewMonthNumber).get(day)) {
                             System.out.println(e.getTitle() + " " + e.getDate() + " " + e.getLocation() + " " + e.getDescription());
+                            System.out.println(e.generateSummary());
                         }
                     } else {
                         System.out.println("No events found for the specified date.");
