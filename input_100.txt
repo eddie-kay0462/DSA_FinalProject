@@ -105,11 +105,4 @@
 "Art Therapy Workshop;2025-05-31;10:00;Mental Health Center Your City;A therapeutic session using art as a medium for self-expression and relaxation"
 "Sports Clinic;2025-06-22;14:00;Local Park Your City;Free sports coaching and training sessions for children and adults"
 "Scientific Experiment Demonstration;2025-07-19;11:00;Science Museum Your City;Interactive demonstrations of exciting scientific experiments"
-"Business Networking Event;2025-08-16;18:00;Hotel Ballroom Your City;A gathering of professionals to connect share ideas and build relationships"
-"Cultural Dance Performance;2025-09-13;20:00;Theater Your City;A showcase of traditional and contemporary dance from different cultures"
-"Automotive Maintenance Workshop;2025-10-18;10:00;Community Center Your City;Learn basic car maintenance skills from experienced mechanics"
-"Technology Hackathon;2025-11-15;24:00;Tech Hub Your City;A competitive event where teams collaborate to develop innovative software solutions"
-"Food Truck Festival;2025-12-20;12:00;City Park Your City;A celebration of diverse cuisines with a variety of food trucks offering delicious treats"
-"Fashion Swap Party;2026-01-17;18:00;Community Center Your City;Bring unwanted clothes to exchange for new-to-you fashion finds"
-"Film Festival;2026-02-21;19:00;Independent Cinema Your City;A showcase of independent and international films"
-"Music Competition;2026-03-24;20:00;Local Music Venue Your City;A talent contest for aspiring musicians"
+
