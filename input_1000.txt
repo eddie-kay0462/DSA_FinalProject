@@ -1115,18 +1115,6 @@ New Year's Day Polar Plunge;2029-01-01;11:00 AM;City Beach;Start the New Year wi
 Valentine's Day Couples Cooking Class;2029-02-14;06:00 PM;Culinary School;Learn to cook a romantic meal together at our Valentine's Day Couples Cooking Class. Perfect for all skill levels with expert chefs guiding you through each step
 Spring Break Family Campout;2029-03-20;04:00 PM;National Park;Spend quality time with your family during our Spring Break Family Campout. Enjoy hiking campfire stories stargazing and more in a beautiful natural setting
 Easter Bunny Breakfast;2029-04-05;09:00 AM;Community Hall;Enjoy a special breakfast with the Easter Bunny. Perfect for families with young children with fun activities photo opportunities and a delicious meal
-Mother's Day High Tea;2029-05-10;02:00 PM;Grand Hotel;Treat your mom to a luxurious High Tea experience at the Grand Hotel. Enjoy a selection of fine teas delicate pastries and live music in an elegant setting
-Father's Day Fishing Derby;2029-06-21;07:00 AM;Lake Park;Celebrate Father's Day with a fun-filled Fishing Derby. Bring your fishing gear and compete for prizes in various categories. A perfect day for fathers and their families
-Winter Yoga and Meditation Retreat;2027-01-15;08:00 AM;Wellness Center;Start the new year with a focus on wellness at our Yoga and Meditation Retreat. Enjoy guided yoga sessions meditation workshops and healthy meals in a serene setting
-Valentine's Day Couples Paint Night;2027-02-14;07:00 PM;Art Studio;Celebrate Valentine's Day with a fun and creative Paint Night for couples. Enjoy a guided painting session with wine and snacks and create a beautiful piece of art together
-Spring Break Family Campout;2027-03-25;04:00 PM;National Park;Spend quality time with your family during our Spring Break Family Campout. Enjoy hiking campfire stories stargazing and more in a beautiful natural setting
-Easter Bunny Breakfast;2027-04-07;09:00 AM;Community Hall;Enjoy a special breakfast with the Easter Bunny. Perfect for families with young children with fun activities photo opportunities and a delicious mea
-Mother's Day Spa Day;2027-05-12;09:00 AM;Luxury Spa;Treat your mom to a relaxing Spa Day at our Luxury Spa. Enjoy massages facials and other pampering treatments in a serene and luxurious environment
-Father's Day Fishing Derby;2027-06-20;07:00 AM;Lake Park;Celebrate Father's Day with a fun-filled Fishing Derby. Bring your fishing gear and compete for prizes in various categories. A perfect day for fathers and their families
-Summer Solstice Lantern Festival;2027-06-21;08:00 PM;City Park;Celebrate the Summer Solstice with a magical lantern festival. Create and decorate your own lantern then release it into the night sky. Enjoy live music food stalls and a beautiful evening under the stars
-Fourth of July Picnic and Parade;2027-07-04;12:00 PM;Community Park;Join us for a traditional Fourth of July Picnic followed by a patriotic parade. Enjoy games food live entertainment and a spectacular fireworks show in the evening
-Summer Beach Bonfire;2027-08-15;06:00 PM;Ocean Beach;Enjoy a summer evening with a Beach Bonfire. Gather with friends and family for music s'mores and a beautiful sunset over the ocean
-
 
 
 
