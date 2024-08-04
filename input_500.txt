@@ -498,12 +498,3 @@ Valentine's Day Dance;2025-02-14;07:00 PM;Community Center;Celebrate love and ro
 St. Patrick's Day Parade;2025-03-17;11:00 AM;Main Street;Join us for a festive St. Patrick's Day Parade featuring floats marching bands and Irish dancers. Wear your green and enjoy a day of Irish-themed fun
 Spring Equinox Celebration;2025-03-20;06:00 PM;Botanical Gardens;Celebrate the arrival of spring with a special evening event at the Botanical Gardens. Enjoy guided tours floral displays and live music as we welcome the new season
 Easter Egg Hunt;2025-04-20;09:00 AM;City Park;Bring your kids to our annual Easter Egg Hunt. Enjoy a morning of fun with egg hunts games and prizes. Don't forget to bring your baskets and cameras for photos with the Easter Bunny
-Memorial Day Ceremony;2025-05-27;09:00 AM;Veterans Park;Honor the men and women who have served our country at our Memorial Day Ceremony. Join us for a touching tribute speeches and a moment of silence
-Summer Music Festival;2025-06-15;04:00 PM;Riverfront Park;Celebrate the start of summer with live music food trucks and family activities at our Summer Music Festival. Enjoy a diverse lineup of bands and artists in a beautiful outdoor setting
-Fourth of July Fireworks;2025-07-04;09:00 PM;City Stadium;Celebrate Independence Day with a spectacular fireworks show at City Stadium. Enjoy live music food vendors and family-friendly activities leading up to the big display
-National Night Out;2025-08-06;06:00 PM;Neighborhood Park;Join us for National Night Out an evening of community-building and crime prevention. Enjoy food games and meet your local law enforcement officers
-Fall Craft Fair;2025-09-14;09:00 AM;Community Center;Find unique handmade gifts and crafts at our Fall Craft Fair. Browse a variety of booths featuring local artisans enjoy live demonstrations and find perfect holiday presents
-Oktoberfest;2025-10-05;12:00 PM;Brewery Grounds;Join us for Oktoberfest a traditional German festival featuring beer bratwurst pretzels and live music. Enjoy a day of festive fun games and authentic German culture
-Thanksgiving Turkey Trot;2025-11-27;08:00 AM;City Park;Join us for our annual Thanksgiving Turkey Trot. This 5K race is perfect for runners of all levels. Set your fitness goals and join us for a morning of health and community
-
-
